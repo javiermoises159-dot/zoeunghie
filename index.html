@@ -7,6 +7,9 @@
 <meta name="description" content="Prenota semipermanente, kapping gel, soft gel, allungamento, nail art e laminazione ciglia con Zoe a Torino, zona Madonna di Campagna.">
 <meta property="og:title" content="zoeunghie_ · Prenota le tue unghie">
 <meta property="og:description" content="Unghie e ciglia a Torino. Scegli trattamento, giorno e orario: ti confermo su WhatsApp.">
+<meta property="og:url" content="https://zoeunghie.pages.dev/">
+<meta property="og:image" content="https://zoeunghie.pages.dev/fotos/hero.jpg">
+<link rel="canonical" href="https://zoeunghie.pages.dev/">
 <meta name="theme-color" content="#fde8f1">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M20 22a12 12 0 0 1 24 0v28a6 6 0 0 1-6 6H26a6 6 0 0 1-6-6z' fill='%23f078aa'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500;600;700&display=swap">
@@ -1073,8 +1076,8 @@ h2 { font-size: 1.1rem; }
       <button type="button" data-tab="cert"><b>Certificados</b><small>Para las alumnas</small></button>
       <button type="button" data-tab="settings"><b>Ajustes</b><small>Precios, horarios, WhatsApp</small></button>
       <button type="button" data-tab="qr"><b>Código QR</b><small>Para imprimir</small></button>
-      <a href="https://claude.ai/artifact/Jwxj3YNCKPKdSg8SHiLF1i" target="_blank" rel="noopener"><b>Kit Instagram</b><small>Logo y gráficas para alumnas</small></a>
-      <a href="https://claude.ai/artifact/UhZ5uRqch3jmQNfkSYxy2d" target="_blank" rel="noopener"><b>Recursos del curso</b><small>Materiales, cuentas y mensajes</small></a>
+      <a href="kit-instagram.html"><b>Kit Instagram</b><small>Logo y gráficas para alumnas</small></a>
+      <a href="recursos.html"><b>Recursos del curso</b><small>Materiales, cuentas y mensajes</small></a>
       <a id="more-stats" href="#" target="_blank" rel="noopener"><b>Visitas a la web</b><small id="more-stats-s">Activalo en Ajustes</small></a>
       <button type="button" data-tab="home"><b>Ver mi página</b><small>Como la ven las clientas</small></button>
     </div>
@@ -2943,7 +2946,7 @@ if (CFG.stats && !window.claude) { const g = document.createElement("script"); g
 $("more-stats").addEventListener("click", (e) => { if (!CFG.stats) { e.preventDefault(); showTab("settings"); } });
 
 /* --- QR --- */
-$("qr-link").value = (() => { try { return localStorage.getItem("zoe-qr") || ""; } catch (e) { return ""; } })();
+$("qr-link").value = (() => { try { return localStorage.getItem("zoe-qr") || "https://zoeunghie.pages.dev"; } catch (e) { return "https://zoeunghie.pages.dev"; } })();
 $("qr-form").addEventListener("submit", (e) => {
   e.preventDefault();
   const link = $("qr-link").value.trim(), box = $("qr-box");
