@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Risorse del corso · zoeunghie_</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: una columna con tres bloques — materiales, calculadora de precios y cuentas, mensajes listos. */
+:root {
+  --bg: #fff8fb; --card: #ffffff; --fg: #2b1727; --muted: #7d6273; --line: #f1d6e3; --accent: #c42a74; --accent-2: #f58fb7; --chip: #fde8f1; --ok: #2f8f5b; --ok-bg: #e6f6ee; --warn: #b5532a; --warn-bg: #fdeee6;
+  --f-body: "Poppins", system-ui, sans-serif; --f-script: "Great Vibes", "Snell Roundhand", cursive;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #1d1419; --card: #281c23; --fg: #f8eef3; --muted: #c4a9b8; --line: #3d2b35; --accent: #f58fb7; --accent-2: #c42a74; --chip: #36242e; --ok: #7fd3a4; --ok-bg: #1f3329; --warn: #f2a37e; --warn-bg: #3a2620; color-scheme: dark } }
+:root[data-theme="dark"] { --bg: #1d1419; --card: #281c23; --fg: #f8eef3; --muted: #c4a9b8; --line: #3d2b35; --accent: #f58fb7; --accent-2: #c42a74; --chip: #36242e; --ok: #7fd3a4; --ok-bg: #1f3329; --warn: #f2a37e; --warn-bg: #3a2620; color-scheme: dark }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--f-body); font-size: 15px; line-height: 1.5; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0 48px; }
+.wrap { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+header { padding-top: 28px; display: flex; flex-direction: column; gap: 6px; }
+.top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.brand { font-family: var(--f-script); font-size: 30px; color: var(--accent); line-height: 1; }
+h1 { font-size: clamp(26px, 5vw, 38px); line-height: 1.1; margin: 0; letter-spacing: -.02em; text-wrap: balance; }
+h2 { font-size: 21px; margin: 0; letter-spacing: -.01em; }
+h3 { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin: 8px 0 0; }
+.lead, .hint { color: var(--muted); margin: 0; max-width: 64ch; }
+.hint { font-size: 13px; }
+.lang { display: flex; gap: 4px; background: var(--chip); border-radius: 99px; padding: 4px; }
+.lang button { font: inherit; font-size: 13px; font-weight: 600; border: 0; background: none; color: var(--muted); border-radius: 99px; padding: 5px 12px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--card); color: var(--fg); }
+.tabs { display: flex; gap: 8px; flex-wrap: wrap; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); padding-block: 10px; }
+.tabs a { font-size: 14px; font-weight: 600; text-decoration: none; color: var(--fg); border: 1.5px solid var(--line); border-radius: 99px; padding: 7px 14px; background: var(--card); }
+.tabs a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid var(--accent-2); outline-offset: 2px; }
+section.panel { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 18px; display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 70px; }
+.seg { display: flex; background: var(--chip); border-radius: 14px; padding: 4px; max-width: 420px; }
+.seg button { flex: 1; font: inherit; font-size: 13.5px; font-weight: 600; border: 0; background: none; color: var(--muted); padding: 8px 0; border-radius: 11px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--card); color: var(--fg); box-shadow: 0 3px 8px -4px rgba(110,30,70,.4); }
+.totals { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.totals div { border-radius: 16px; padding: 12px 14px; background: var(--chip); }
+.totals small { display: block; font-size: 12px; color: var(--muted); }
+.totals b { font-size: 24px; font-variant-numeric: tabular-nums; }
+.mat { display: flex; flex-direction: column; gap: 10px; }
+.item { border: 1px solid var(--line); border-radius: 18px; padding: 12px 14px; display: grid; grid-template-columns: 1fr; gap: 8px; }
+.item .hd { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.item b { font-size: 15px; } .item .why { font-size: 13px; color: var(--muted); margin: 0; }
+.lvl { font-size: 10.5px; font-weight: 700; letter-spacing: .08em; color: var(--accent); background: var(--chip); border-radius: 99px; padding: 2px 8px; white-space: nowrap; }
+.opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; }
+.opt { border-radius: 14px; padding: 9px 12px; display: flex; justify-content: space-between; align-items: center; gap: 10px; background: var(--bg); min-width: 0; }
+.opt span { font-size: 13px; min-width: 0; } .opt small { display: block; font-size: 11px; color: var(--muted); font-weight: 600; letter-spacing: .06em; }
+.opt .pr { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.opt a { font-size: 12.5px; font-weight: 600; color: var(--accent); white-space: nowrap; }
+.opt.on { outline: 2px solid var(--accent-2); }
+.calc { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px 14px; }
+label { font-size: 12px; font-weight: 600; color: var(--muted); display: flex; flex-direction: column; gap: 5px; }
+input[type=text] { font: inherit; font-size: 15px; font-weight: 400; color: var(--fg); background: var(--bg); border: 1.5px solid var(--line); border-radius: 12px; padding: 9px 11px; width: 100%; min-width: 0; font-variant-numeric: tabular-nums; }
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; }
+table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 14px; }
+th, td { padding: 8px 10px; text-align: right; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+th:first-child, td:first-child { text-align: left; }
+th { font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; background: var(--chip); }
+td input { width: 76px; padding: 6px 8px; text-align: right; }
+td.name input { width: 100%; min-width: 150px; text-align: left; }
+.good { color: var(--ok); font-weight: 700; } .bad { color: var(--warn); font-weight: 700; }
+.result { border-radius: 18px; padding: 14px 16px; background: var(--ok-bg); color: var(--fg); display: flex; flex-direction: column; gap: 6px; }
+.result.warn { background: var(--warn-bg); }
+.result b.big { font-size: 22px; }
+.btn { font: inherit; font-weight: 600; font-size: 13.5px; border: 1.5px solid var(--line); background: var(--card); color: var(--accent); border-radius: 99px; padding: 6px 14px; cursor: pointer; align-self: flex-start; }
+.msgs { display: grid; gap: 10px; }
+.msg { border: 1px solid var(--line); border-radius: 18px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.msg .hd { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.msg pre { white-space: pre-wrap; font: inherit; font-size: 14px; margin: 0; background: var(--bg); border-radius: 12px; padding: 10px 12px; }
+.toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--fg); color: var(--bg); padding: 10px 16px; border-radius: 99px; font-size: 13.5px; opacity: 0; transition: opacity .2s; pointer-events: none; }
+.toast.on { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .toast { transition: none; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="top"><span class="brand">zoeunghie_</span><div class="lang" role="group" aria-label="Lingua"><button type="button" data-l="it" aria-pressed="true">IT</button><button type="button" data-l="es" aria-pressed="false">ES</button></div></div>
+    <h1 data-t="title"></h1>
+    <p class="lead" data-t="lead"></p>
+  </header>
+  <nav class="tabs" aria-label="Sezioni"><a href="#materiali" data-t="navMat"></a><a href="#conti" data-t="navCalc"></a><a href="#messaggi" data-t="navMsg"></a></nav>
+
+  <section class="panel" id="materiali" aria-labelledby="h-mat">
+    <h2 id="h-mat" data-t="matTitle"></h2>
+    <p class="hint" data-t="matHint"></p>
+    <div class="seg" role="group" id="mat-lvl"><button type="button" data-v="base" aria-pressed="true" data-t="lvBase"></button><button type="button" data-v="all" aria-pressed="false" data-t="lvAll"></button></div>
+    <div class="totals"><div><small data-t="totEco"></small><b id="tot-eco">€0</b></div><div><small data-t="totPro"></small><b id="tot-pro">€0</b></div></div>
+    <div class="mat" id="mat"></div>
+  </section>
+
+  <section class="panel" id="conti" aria-labelledby="h-calc">
+    <h2 id="h-calc" data-t="calcTitle"></h2>
+    <p class="hint" data-t="calcHint"></p>
+    <div class="calc">
+      <label for="c-goal"><span data-t="cGoal"></span><input type="text" id="c-goal" inputmode="decimal" value="1500"></label>
+      <label for="c-fixed"><span data-t="cFixed"></span><input type="text" id="c-fixed" inputmode="decimal" value="250"></label>
+      <label for="c-tax"><span data-t="cTax"></span><input type="text" id="c-tax" inputmode="decimal" value="25"></label>
+      <label for="c-hours"><span data-t="cHours"></span><input type="text" id="c-hours" inputmode="decimal" value="25"></label>
+    </div>
+    <div class="tablewrap"><table>
+      <thead><tr><th data-t="thSvc"></th><th data-t="thPrice"></th><th data-t="thCost"></th><th data-t="thMin"></th><th data-t="thGain"></th><th data-t="thHour"></th></tr></thead>
+      <tbody id="svc"></tbody>
+    </table></div>
+    <button type="button" class="btn" id="add-row" data-t="addRow"></button>
+    <div class="result" id="result" role="status" aria-live="polite"></div>
+  </section>
+
+  <section class="panel" id="messaggi" aria-labelledby="h-msg">
+    <h2 id="h-msg" data-t="msgTitle"></h2>
+    <p class="hint" data-t="msgHint"></p>
+    <div class="msgs" id="msgs"></div>
+  </section>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const AMZ = (q) => "https://www.amazon.it/s?k=" + encodeURIComponent(q);
+/* Prezzi indicativi (Italia, novembre 2026): [eco min, eco max, pro min, pro max] */
+const MAT = [
+  { lv: "base", it: ["Lampada UV/LED", "Per asciugare semipermanente e gel. La pro ha più potenza e sensore."], es: ["Lámpara UV/LED", "Para secar semipermanente y gel. La pro tiene más potencia y sensor."], p: [20, 30, 60, 120], q: ["lampada uv led unghie 48w", "lampada uv led unghie professionale 120w sensore"] },
+  { lv: "base", it: ["Fresa elettrica e punte", "Per preparare l'unghia e togliere il gel. Inizia piano, a pochi giri."], es: ["Torno eléctrico y fresas", "Para preparar la uña y quitar el gel. Empieza despacio, a pocas revoluciones."], p: [30, 45, 120, 250], q: ["fresa unghie elettrica 20000 giri punte", "fresa unghie professionale 35000 giri"] },
+  { lv: "base", it: ["Lime 100/180 e buffer", "Usa e getta o disinfettabili. Comprane tante."], es: ["Limas 100/180 y buffer", "Desechables o desinfectables. Compra muchas."], p: [6, 10, 15, 22], q: ["lime unghie 100 180 set", "lime unghie professionali 100 180 lavabili"] },
+  { lv: "base", it: ["Spingicuticole e tronchesino", "In acciaio inox, da sterilizzare dopo ogni cliente."], es: ["Empujador de cutículas y alicate", "De acero inoxidable, para esterilizar después de cada clienta."], p: [8, 12, 20, 35], q: ["spingicuticole tronchesino set acciaio", "tronchesino cuticole professionale acciaio inox"] },
+  { lv: "base", it: ["Nail prep, primer, base e top", "La base del lavoro: decide quanto dura lo smalto."], es: ["Nail prep, primer, base y top", "La base del trabajo: decide cuánto dura el esmalte."], p: [15, 20, 35, 50], q: ["kit base top primer semipermanente", "Michelle nail prep primer ultra base"] },
+  { lv: "base", it: ["Base rubber", "Per il semipermanente rinforzato e le unghie deboli."], es: ["Base rubber", "Para el semipermanente reforzado y las uñas débiles."], p: [8, 12, 15, 22], q: ["base rubber unghie", "Michelle rubber base gel"] },
+  { lv: "base", it: ["Smalti semipermanenti (6 colori)", "Nude, latte, rosa, rosso, bordeaux e nero: bastano per partire."], es: ["Esmaltes semipermanentes (6 colores)", "Nude, leche, rosa, rojo, burdeos y negro: bastan para empezar."], p: [15, 25, 50, 70], q: ["smalti semipermanenti set 6 colori", "smalto semipermanente professionale nude"] },
+  { lv: "base", it: ["Gel costruttore (kapping)", "Per la copertura in gel sull'unghia naturale."], es: ["Gel constructor (kapping)", "Para la cobertura de gel sobre la uña natural."], p: [10, 15, 20, 35], q: ["gel costruttore unghie rosa", "Passione Beauty gel costruttore"] },
+  { lv: "base", it: ["Acetone, cleaner e dischetti senza pelucchi", "Per pulire e togliere il semipermanente."], es: ["Acetona, cleaner y discos sin pelusa", "Para limpiar y quitar el semipermanente."], p: [8, 12, 18, 25], q: ["cleaner unghie acetone dischetti lint free", "cleaner professionale unghie 500 ml"] },
+  { lv: "base", it: ["Igiene: disinfettante, sterilizzatore, guanti", "Obbligatorio: le clienti lo notano e ti fa lavorare tranquilla."], es: ["Higiene: desinfectante, esterilizador, guantes", "Obligatorio: las clientas lo notan y te deja trabajar tranquila."], p: [20, 30, 50, 80], q: ["sterilizzatore strumenti unghie disinfettante", "sterilizzatore professionale estetica"] },
+  { lv: "base", it: ["Poggiamano e tappetino", "Comodità per te e per la cliente, anche a domicilio."], es: ["Reposamanos y alfombrilla", "Comodidad para ti y la clienta, también a domicilio."], p: [10, 15, 30, 45], q: ["cuscino poggiamano unghie", "poggiamano manicure professionale"] },
+  { lv: "adv", it: ["Tips soft gel e colla gel", "Per l'allungamento veloce con tips."], es: ["Tips soft gel y pegamento gel", "Para el alargamiento rápido con tips."], p: [10, 15, 25, 40], q: ["tips soft gel unghie mandorla colla", "soft gel tips professionali"] },
+  { lv: "adv", it: ["Cartine per allungamento", "Per costruire la forma su misura."], es: ["Moldes de papel", "Para construir la forma a medida."], p: [4, 6, 10, 15], q: ["cartine unghie allungamento", "cartine ricostruzione unghie professionali"] },
+  { lv: "adv", it: ["Pennelli: gel, liner e nail art", "Per costruzione, french e decorazioni fini."], es: ["Pinceles: gel, liner y nail art", "Para construcción, french y decoraciones finas."], p: [8, 12, 20, 35], q: ["pennelli nail art set liner", "pennello gel unghie professionale"] },
+  { lv: "adv", it: ["Decorazioni: strass, charms 3D, foil", "Si fanno pagare a parte: da 0,10 € a pezzo."], es: ["Decoraciones: strass, charms 3D, foil", "Se cobran aparte: desde 0,10 € la pieza."], p: [10, 15, 25, 40], q: ["strass unghie charms 3d set", "charms 3d unghie oro set"] }
+];
+const SVC = [
+  { it: "Semipermanente", es: "Semipermanente", price: 20, cost: 2.5, min: 45 },
+  { it: "Rinforzato rubber", es: "Reforzado rubber", price: 25, cost: 3, min: 60 },
+  { it: "Kapping gel", es: "Kapping gel", price: 30, cost: 4, min: 75 },
+  { it: "Soft gel (tips)", es: "Soft gel (tips)", price: 35, cost: 5, min: 90 },
+  { it: "Allungamento gel", es: "Alargamiento gel", price: 40, cost: 6, min: 100 },
+  { it: "Semipermanente piedi", es: "Semipermanente pies", price: 20, cost: 2.5, min: 45 }
+];
+const MSG = [
+  { it: ["Conferma appuntamento", "Ciao {n}! 💅 Ti confermo l'appuntamento di {g} alle {h} per {s}.\nSe hai già gel o semipermanente dimmelo, così calcolo anche la rimozione.\nA presto!"],
+    es: ["Confirmar cita", "¡Hola {n}! 💅 Te confirmo la cita del {g} a las {h} para {s}.\nSi ya tienes gel o semipermanente dímelo, así calculo también la retirada.\n¡Hasta pronto!"] },
+  { it: ["Promemoria il giorno prima", "Ciao {n}! Ti ricordo che domani alle {h} ci vediamo per le unghie ✨\nSe hai un imprevisto avvisami entro stasera, così libero il posto. Grazie!"],
+    es: ["Recordatorio el día antes", "¡Hola {n}! Te recuerdo que mañana a las {h} nos vemos para las uñas ✨\nSi tienes un imprevisto avísame hoy, así libero el hueco. ¡Gracias!"] },
+  { it: ["«Quanto costa?»", "Ciao! Grazie per avermi scritto 😊\nIl semipermanente parte da 20 €, il rinforzato rubber 25 € e il kapping gel 30 €. La nail art si aggiunge da 5 €.\nDimmi cosa ti piacerebbe (anche con una foto) e ti dico il prezzo preciso e il primo posto libero."],
+    es: ["«¿Cuánto cuesta?»", "¡Hola! Gracias por escribirme 😊\nEl semipermanente empieza en 20 €, el reforzado rubber 25 € y el kapping gel 30 €. La nail art se suma desde 5 €.\nDime qué te gustaría (también con una foto) y te digo el precio exacto y el primer hueco libre."] },
+  { it: ["Dopo il servizio: chiedere la recensione", "Grazie {n}, è stato un piacere! 💖\nSe ti sono piaciute le unghie, mi aiuti tantissimo con una recensione qui: {link}\nE se pubblichi una storia taggami, la ricondivido!"],
+    es: ["Después del servicio: pedir reseña", "¡Gracias {n}, fue un placer! 💖\nSi te gustaron las uñas, me ayudas muchísimo con una reseña aquí: {link}\nY si subes una historia etiquétame, ¡la comparto!"] },
+  { it: ["Spostare un appuntamento", "Ciao {n}, purtroppo devo spostare il nostro appuntamento di {g}. Ti va bene {altro}? Scusami per il cambio, ti ringrazio per la pazienza 🙏"],
+    es: ["Cambiar una cita", "Hola {n}, lamentablemente tengo que mover nuestra cita del {g}. ¿Te viene bien {altro}? Perdona el cambio, gracias por la paciencia 🙏"] },
+  { it: ["Cliente che non torna da tempo", "Ciao {n}! È da un po' che non ci vediamo 😊 Questa settimana ho ancora qualche posto libero: se vuoi rifare le unghie scrivimi e ti tengo il posto."],
+    es: ["Clienta que hace tiempo no viene", "¡Hola {n}! Hace un tiempo que no nos vemos 😊 Esta semana aún tengo algunos huecos: si quieres hacerte las uñas escríbeme y te guardo el sitio."] }
+];
+const UI = {
+  it: { title: "Risorse del corso", lead: "Tutto quello che ti serve per partire: cosa comprare, quanto far pagare e cosa scrivere alle clienti.", navMat: "Materiali", navCalc: "Prezzi e conti", navMsg: "Messaggi pronti",
+    matTitle: "Lista dei materiali", matHint: "Per ogni prodotto trovi una versione economica e una professionale. Prezzi indicativi in Italia (novembre 2026): controlla sempre prima di comprare. Tocca un'opzione per sceglierla e vedere il totale.",
+    lvBase: "Corso Base", lvAll: "Base + Avanzato", totEco: "Tutto economico", totPro: "Tutto professionale", eco: "ECONOMICO", pro: "PROFESSIONALE", see: "Vedi", lvAdv: "AVANZATO", mine: "La tua scelta",
+    calcTitle: "Prezzi e conti", calcHint: "Scrivi i tuoi numeri: vedi quanto guadagni davvero per ogni servizio e quante clienti ti servono per arrivare al tuo obiettivo.",
+    cGoal: "Quanto vuoi guadagnare al mese (€, netto)", cFixed: "Spese fisse al mese (€: affitto, telefono, pubblicità…)", cTax: "Tasse e contributi (% sugli incassi)", cHours: "Ore che puoi lavorare a settimana",
+    thSvc: "Servizio", thPrice: "Prezzo €", thCost: "Materiale €", thMin: "Minuti", thGain: "Ti resta €", thHour: "€ all'ora", addRow: "+ Aggiungi servizio",
+    rNeed: "Per guadagnare {g} € netti ti servono circa <b class='big'>{n} servizi al mese</b> ({w} a settimana), con un guadagno medio di {a} € a servizio.",
+    rTime: "Ci vogliono circa {h} ore a settimana: rientri nelle {max} ore che hai.", rOver: "Ci vorrebbero circa {h} ore a settimana, più delle {max} che hai: alza un po' i prezzi o proponi servizi che rendono di più all'ora.",
+    rLow: "Attenzione: «{s}» ti lascia meno di 15 € all'ora. Valuta di alzarne il prezzo.",
+    msgTitle: "Messaggi pronti", msgHint: "Copia, cambia le parti tra parentesi graffe {come questa} e invia su WhatsApp.", copy: "Copia", copied: "Copiato", sel: "Testo selezionato: copialo" },
+  es: { title: "Recursos del curso", lead: "Todo lo que necesitas para empezar: qué comprar, cuánto cobrar y qué escribir a las clientas.", navMat: "Materiales", navCalc: "Precios y cuentas", navMsg: "Mensajes listos",
+    matTitle: "Lista de materiales", matHint: "Para cada producto hay una versión económica y una profesional. Precios orientativos en Italia (noviembre 2026): compruébalos siempre antes de comprar. Toca una opción para elegirla y ver el total.",
+    lvBase: "Curso Base", lvAll: "Base + Avanzado", totEco: "Todo económico", totPro: "Todo profesional", eco: "ECONÓMICO", pro: "PROFESIONAL", see: "Ver", lvAdv: "AVANZADO", mine: "Tu elección",
+    calcTitle: "Precios y cuentas", calcHint: "Escribe tus números: ves cuánto ganas de verdad con cada servicio y cuántas clientas necesitas para llegar a tu objetivo.",
+    cGoal: "Cuánto quieres ganar al mes (€, neto)", cFixed: "Gastos fijos al mes (€: alquiler, teléfono, publicidad…)", cTax: "Impuestos y cotizaciones (% sobre lo cobrado)", cHours: "Horas que puedes trabajar a la semana",
+    thSvc: "Servicio", thPrice: "Precio €", thCost: "Material €", thMin: "Minutos", thGain: "Te queda €", thHour: "€ por hora", addRow: "+ Añadir servicio",
+    rNeed: "Para ganar {g} € netos necesitas unos <b class='big'>{n} servicios al mes</b> ({w} a la semana), con una ganancia media de {a} € por servicio.",
+    rTime: "Son unas {h} horas a la semana: entras en las {max} horas que tienes.", rOver: "Serían unas {h} horas a la semana, más de las {max} que tienes: sube un poco los precios u ofrece servicios que rindan más por hora.",
+    rLow: "Ojo: «{s}» te deja menos de 15 € por hora. Piensa en subirle el precio.",
+    msgTitle: "Mensajes listos", msgHint: "Copia, cambia lo que va entre llaves {como esto} y envíalo por WhatsApp.", copy: "Copiar", copied: "Copiado", sel: "Texto seleccionado: cópialo" }
+};
+const st = { l: "it", lvl: "base", pick: {}, rows: SVC.map((x) => ({ ...x })) };
+try { const s = JSON.parse(localStorage.getItem("zoe-risorse") || "null"); if (s) { st.l = s.l || st.l; st.pick = s.pick || {}; if (Array.isArray(s.rows) && s.rows.length) st.rows = s.rows; ["c-goal", "c-fixed", "c-tax", "c-hours"].forEach((id) => { if (s[id] != null) $(id).value = s[id]; }); } } catch (e) {}
+const save = () => { try { localStorage.setItem("zoe-risorse", JSON.stringify({ l: st.l, pick: st.pick, rows: st.rows, ...Object.fromEntries(["c-goal", "c-fixed", "c-tax", "c-hours"].map((id) => [id, $(id).value])) })); } catch (e) {} };
+const T = () => UI[st.l];
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const num = (v) => { const n = parseFloat(String(v).replace(",", ".")); return Number.isFinite(n) ? n : 0; };
+const eur = (n) => (Math.round(n * 100) / 100).toLocaleString(st.l === "es" ? "es-ES" : "it-IT", { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 }) + " €";
+function applyUI() {
+  document.documentElement.lang = st.l;
+  document.querySelectorAll("[data-t]").forEach((el) => { el.textContent = T()[el.dataset.t]; });
+  document.querySelectorAll(".lang button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.l === st.l)));
+  renderMat(); renderCalc(); renderMsgs();
+}
+function renderMat() {
+  document.querySelectorAll("#mat-lvl button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.v === st.lvl)));
+  const list = MAT.map((m, i) => ({ ...m, i })).filter((m) => st.lvl === "all" || m.lv === "base");
+  const mid = (a, b) => (a + b) / 2;
+  $("tot-eco").textContent = eur(list.reduce((t, m) => t + mid(m.p[0], m.p[1]), 0));
+  $("tot-pro").textContent = eur(list.reduce((t, m) => t + mid(m.p[2], m.p[3]), 0));
+  $("mat").innerHTML = list.map((m) => { const [nm, why] = m[st.l], pk = st.pick[m.i];
+    const opt = (k, a, b, q) => `<div class="opt${pk === k ? " on" : ""}"><span><small>${k === "e" ? T().eco : T().pro}</small><span class="pr">${eur(a)}–${eur(b)}</span></span><span style="display:flex;gap:10px;align-items:center"><button type="button" class="btn" data-pick="${m.i}:${k}" aria-pressed="${pk === k}">${pk === k ? "✓" : "○"}</button><a href="${AMZ(q)}" target="_blank" rel="noopener">${T().see} ↗</a></span></div>`;
+    return `<div class="item"><div class="hd"><b>${esc(nm)}</b>${m.lv === "adv" ? `<span class="lvl">${T().lvAdv}</span>` : ""}</div><p class="why">${esc(why)}</p><div class="opts">${opt("e", m.p[0], m.p[1], m.q[0])}${opt("p", m.p[2], m.p[3], m.q[1])}</div></div>`; }).join("");
+  const chosen = list.filter((m) => st.pick[m.i]);
+  if (chosen.length) { const tot = chosen.reduce((t, m) => t + (st.pick[m.i] === "e" ? mid(m.p[0], m.p[1]) : mid(m.p[2], m.p[3])), 0);
+    $("mat").insertAdjacentHTML("afterbegin", `<div class="result"><span>${T().mine}: <b class="big">${eur(tot)}</b> · ${chosen.length}/${list.length}</span></div>`); }
+}
+function renderCalc() {
+  const tb = $("svc"); const focus = document.activeElement && document.activeElement.dataset && document.activeElement.dataset.r ? document.activeElement.dataset.r + ":" + document.activeElement.dataset.k : null;
+  const tax = num($("c-tax").value) / 100;
+  tb.innerHTML = st.rows.map((r, i) => { const nm = r[st.l] || r.it || r.es || ""; const gain = r.price * (1 - tax) - r.cost; const ph = r.min > 0 ? gain / (r.min / 60) : 0;
+    return `<tr><td class="name"><input type="text" data-r="${i}" data-k="name" value="${esc(nm)}" aria-label="${T().thSvc}"></td><td><input type="text" inputmode="decimal" data-r="${i}" data-k="price" value="${r.price}" aria-label="${T().thPrice}"></td><td><input type="text" inputmode="decimal" data-r="${i}" data-k="cost" value="${r.cost}" aria-label="${T().thCost}"></td><td><input type="text" inputmode="numeric" data-r="${i}" data-k="min" value="${r.min}" aria-label="${T().thMin}"></td><td>${eur(gain)}</td><td class="${ph >= 15 ? "good" : "bad"}">${eur(ph)}</td></tr>`; }).join("");
+  if (focus) { const [r, k] = focus.split(":"); const el = tb.querySelector(`[data-r="${r}"][data-k="${k}"]`); if (el) { el.focus(); const v = el.value; el.setSelectionRange && el.type === "text" && el.setSelectionRange(v.length, v.length); } }
+  renderResult();
+}
+function renderResult() {
+  const tax = num($("c-tax").value) / 100, goal = num($("c-goal").value), fixed = num($("c-fixed").value), hmax = num($("c-hours").value);
+  const rows = st.rows.filter((r) => r.price > 0);
+  if (!rows.length) { $("result").textContent = ""; return; }
+  const avgGain = rows.reduce((t, r) => t + (r.price * (1 - tax) - r.cost), 0) / rows.length, avgMin = rows.reduce((t, r) => t + r.min, 0) / rows.length;
+  const n = avgGain > 0 ? Math.ceil((goal + fixed) / avgGain) : 0, w = Math.ceil(n / 4.3), h = Math.round(w * avgMin / 60);
+  const low = rows.find((r) => r.min > 0 && (r.price * (1 - tax) - r.cost) / (r.min / 60) < 15);
+  const t = T(), name = (r) => r[st.l] || r.it || r.es;
+  $("result").className = "result" + (h > hmax || low ? " warn" : "");
+  $("result").innerHTML = `<span>${t.rNeed.replace("{g}", eur(goal).replace(" €", "")).replace("{n}", n).replace("{w}", w).replace("{a}", eur(avgGain).replace(" €", ""))}</span>` +
+    `<span>${(h > hmax ? t.rOver : t.rTime).replace("{h}", h).replace("{max}", hmax)}</span>` + (low ? `<span>${t.rLow.replace("{s}", esc(name(low)))}</span>` : "");
+}
+function renderMsgs() {
+  $("msgs").innerHTML = MSG.map((m, i) => `<div class="msg"><div class="hd"><b>${esc(m[st.l][0])}</b><button type="button" class="btn" data-copy="${i}">${T().copy}</button></div><pre id="m-${i}">${esc(m[st.l][1])}</pre></div>`).join("");
+}
+function toast(m) { const t = $("toast"); t.textContent = m; t.classList.add("on"); clearTimeout(toast.k); toast.k = setTimeout(() => t.classList.remove("on"), 2000); }
+document.addEventListener("click", async (e) => {
+  const l = e.target.closest(".lang button"); if (l) { st.l = l.dataset.l; save(); applyUI(); return; }
+  const lv = e.target.closest("#mat-lvl button"); if (lv) { st.lvl = lv.dataset.v; renderMat(); return; }
+  const pk = e.target.closest("[data-pick]"); if (pk) { const [i, k] = pk.dataset.pick.split(":"); st.pick[i] = st.pick[i] === k ? undefined : k; save(); renderMat(); return; }
+  if (e.target.id === "add-row") { st.rows.push({ it: "", es: "", price: 0, cost: 0, min: 60 }); save(); renderCalc(); return; }
+  const cp = e.target.closest("[data-copy]");
+  if (cp) { const el = $("m-" + cp.dataset.copy); try { await navigator.clipboard.writeText(el.textContent); toast(T().copied); } catch (err) { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast(T().sel); } }
+});
+document.addEventListener("input", (e) => {
+  const el = e.target;
+  if (el.dataset && el.dataset.r) { const r = st.rows[+el.dataset.r]; if (el.dataset.k === "name") { r[st.l] = el.value; } else { r[el.dataset.k] = num(el.value); }
+    save(); clearTimeout(renderCalc.t); renderCalc.t = setTimeout(renderCalc, 500); return; }
+  if (["c-goal", "c-fixed", "c-tax", "c-hours"].includes(el.id)) { save(); if (el.id === "c-tax") { clearTimeout(renderCalc.t); renderCalc.t = setTimeout(renderCalc, 400); } else renderResult(); }
+});
+applyUI();
+</script>
+
+</body>
+</html>
